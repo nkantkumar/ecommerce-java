@@ -1,0 +1,65 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: distributed
+
+  application:
+    name: distributed-ecommerce
+
+  datasource:
+    master:
+      jdbc-url: jdbc:mysql://localhost:3306/ecommerce_master?useSSL=false&serverTimezone=UTC
+      username: root
+      password: password
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+    slave:
+      jdbc-url: jdbc:mysql://localhost:3307/ecommerce_slave?useSSL=false&serverTimezone=UTC
+      username: root
+      password: password
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      maximum-pool-size: 15
+      minimum-idle: 3
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+        cache:
+          use_second_level_cache: true
+          region:
+            factory_class: org.hibernate.cache.jcache.JCacheRegionFactory
+
+  redis:
+    host: localhost
+    port: 6379
+    timeout: 2000ms
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+
+  session:
+    store-type: redis
+    timeout: 30m
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
