@@ -10,9 +10,7 @@ public class MapTest {
                 List.of(1, 2),
                 List.of(3, 4)
         );
-
         List x1 = numbers.stream().flatMap(List::stream).toList();
-
         System.out.println(x1);
     }
 }
