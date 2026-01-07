@@ -119,6 +119,21 @@
       <version>2.3.2</version>
     </dependency>
     <dependency>
+      <groupId>net.openhft</groupId>
+      <artifactId>chronicle-queue</artifactId>
+      <version>5.27ea11</version>
+    </dependency>
+    <dependency>
+      <groupId>com.lmax</groupId>
+      <artifactId>disruptor</artifactId>
+      <version>4.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.agrona</groupId>
+      <artifactId>agrona</artifactId>
+      <version>1.21.2</version>
+    </dependency>
+    <dependency>
       <groupId>org.ta4j</groupId>
       <artifactId>ta4j-core</artifactId>
       <version>0.18</version>

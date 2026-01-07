@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "orders")
 public class Order {
@@ -42,7 +44,6 @@ public class Order {
 
     public void addItem(OrderItem item) {
         items.add(item);
-        item.setOrder(this);
     }
 }
 
