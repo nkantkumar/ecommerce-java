@@ -51,5 +51,18 @@ class Employee {
         return joiningDate;
     }
 
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", department='" + department + '\'' +
+                ", salary=" + salary +
+                ", age=" + age +
+                ", projects=" + projects +
+                ", city='" + city + '\'' +
+                ", joiningDate=" + joiningDate +
+                '}';
+    }
+
     // constructors, getters, setters
 }
